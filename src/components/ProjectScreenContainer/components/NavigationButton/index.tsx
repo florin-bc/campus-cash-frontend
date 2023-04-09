@@ -3,11 +3,8 @@ import Close from "../../../../../assets/icons/icon-close.svg";
 import CloseWhite from "../../../../../assets/icons/icon-close-white.svg";
 import Back from "../../../../../assets/icons/icon-back.svg";
 import BackBlack from "../../../../../assets/icons/icon-back-black.svg";
-import SaveWhiteEmpty from "../../../../../assets/icons/icon-save-white-empty.svg";
-import SaveWhiteFill from "../../../../../assets/icons/icon-save-white-fill.svg";
 import SettingsWhite from "../../../../../assets/icons/icon-settings-white.svg";
 import SettingsBlack from "../../../../../assets/icons/icon-settings-black.svg";
-import InfoOrange from "../../../../../assets/icons/icon-info-orange.svg";
 import { NavigationButtonType } from "./types";
 import { isRightNavigationButton } from "./utils";
 import Components from "./styled";
@@ -18,10 +15,12 @@ const NavigationButton = ({
   type,
   onPress,
   theme,
+  profileSub,
 }: {
   type: NavigationButtonType;
   onPress?: () => void;
   theme?: NavigationBarTheme;
+  profileSub?: string;
 }) => {
   const navigation = useNavigation();
 
@@ -47,6 +46,7 @@ const NavigationButton = ({
   const Container = isCustomButton
     ? Components.CustomContainer
     : Components.IconsContainer;
+
   return (
     //  @ts-ignore
     <Container
@@ -54,7 +54,11 @@ const NavigationButton = ({
       onPress={_onPress}
       disabled={type === "species"}
     >
-      {type === "close" ? (
+      {profileSub ? (
+        <Components.Profile.Wrapper>
+          <Components.Profile.Text>{profileSub}</Components.Profile.Text>
+        </Components.Profile.Wrapper>
+      ) : type === "close" ? (
         theme?.isLight ? (
           <CloseWhite />
         ) : (
@@ -72,14 +76,6 @@ const NavigationButton = ({
         ) : (
           <SettingsBlack />
         )
-      ) : type === "save" ? (
-        <SaveWhiteFill />
-      ) : type === "unsave" ? (
-        <SaveWhiteEmpty />
-      ) : type === "info" ? (
-        <InfoOrange />
-      ) : type === "species" ? (
-        <Components.ButtonLabelBig>Species+</Components.ButtonLabelBig>
       ) : null}
     </Container>
   );

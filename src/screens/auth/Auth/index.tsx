@@ -1,7 +1,13 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import LoginButton from "../../../components/LoginButton";
+import { useNavigation } from "@react-navigation/native";
+import { RootNavigationType } from "../../../router/types";
 
 const Auth = () => {
+  const navigation = useNavigation<RootNavigationType<"Auth">>();
+
+  const navigateToMoodleAuth = () => navigation?.push("MoodleAuth");
+
   return (
     <View style={styles.container}>
       <Image
@@ -9,7 +15,7 @@ const Auth = () => {
         style={styles.logo}
       ></Image>
       <Text style={styles.motto}>We make it easy for you:{`\)`}</Text>
-      <LoginButton />
+      <LoginButton onPress={navigateToMoodleAuth} />
       <Text style={styles.terms} onPress={() => console.log("pressed")}>
         Terms and conditions
       </Text>

@@ -9,7 +9,7 @@ import {
 const CustomContainer = styled.TouchableOpacity<{ isRightButton: boolean }>`
   height: ${TOP_NAV_BAR_SIZE}px;
   justify-content: center;
-  align-items: ${(p) => (p.isRightButton ? "flex-end" : "flex-start")};
+  align-items: ${(p) => (p?.isRightButton ? "flex-end" : "flex-start")};
   ${(p) =>
     p.isRightButton
       ? `padding-right: ${TOP_NAV_BUTTON_PADDING}px;`
@@ -33,6 +33,22 @@ const Components = {
     color: ${AppCSS.colors.white};
     margin-left: 8px;
   `,
+
+  Profile: {
+    Wrapper: styled.View`
+      background-color: ${AppCSS.colors.yellow};
+      height: 45px;
+      width: 45px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+    `,
+
+    Text: styled.Text`
+      ${AppCSS.fonts.h3};
+      color: ${AppCSS.colors.eerieBlack};
+    `,
+  },
 };
 
 export default Components;

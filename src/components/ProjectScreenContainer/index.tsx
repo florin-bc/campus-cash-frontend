@@ -10,7 +10,7 @@ const ProjectScreenContainer = (props: ScreenContainerProps) => {
   const processed: ScreenContainerProps = {
     type: "navigation",
     screenType,
-    backgroundColor: AppCSS.colors.backgroundColor,
+    backgroundColor: AppCSS.colors.eerieBlack,
     theme: AppCSS.navigationBar.themes.white,
     isTransparent: false,
     isItalic: props.isItalic ? props.isItalic : false,

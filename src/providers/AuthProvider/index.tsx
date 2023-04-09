@@ -9,7 +9,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     switch (type) {
       case "emailAndPass":
         const user = await fetchLoginUser(value);
-        if (user) {
+        if (user?.id) {
           setUser(user);
           return true;
         }

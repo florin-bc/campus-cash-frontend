@@ -2,13 +2,11 @@ import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 export type RootStackRouteParams = {
-  Login: undefined;
-  Register: undefined;
+  Auth: undefined;
+  MoodleAuth: undefined;
   Home: undefined;
-  Profil: undefined;
-  Otokare: undefined;
-  Map: undefined;
-  Leaderboard: undefined;
+  Profile: undefined;
+  Loans: undefined;
 };
 
 export type RootNavigationType<T extends keyof RootStackRouteParams> =

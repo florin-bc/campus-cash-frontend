@@ -4,11 +4,15 @@ const COLORS = {
   backgroundColor: "#F9F9F9",
   white: "#FFFFFF",
   darkBlue: "#181D27",
-  grey: "#757575",
+  grey: "#444745",
   greens: {
     office: "#2E7D32",
   },
   orangePeel: "#FF9800",
+  yellow: "#F5CB5C",
+  eerieBlack: "#242423",
+  platinum: "#CFDBD5",
+  alabaster: "#E8EDDF",
 };
 
 const createFontCSS = (
@@ -32,6 +36,7 @@ const fonts = {
   h1Bold: createFontCSS(24, FONTS.boldRoboto, 24),
   h1BoldItalic: createFontCSS(24, FONTS.boldItalicRoboto, 24),
   h2: createFontCSS(22, FONTS.mediumRoboto, 22),
+  h2Bold: createFontCSS(22, FONTS.boldRoboto, 22),
   h3: createFontCSS(18, FONTS.regularRoboto, 20),
   h3Medium: createFontCSS(18, FONTS.mediumRoboto, 20),
   h4: createFontCSS(16, FONTS.regularRoboto, 20),
@@ -68,8 +73,8 @@ const createButtonContainerCSS = (
   let paddingVertical = "0px";
   switch (type) {
     case "primary":
-      backgroundColor = `${COLORS.greens.office}`;
-      radius = `${radiuses.veryBig}`;
+      backgroundColor = `${COLORS.yellow}`;
+      radius = `${radiuses.big}`;
       paddingHorizontal = `${horizontalPadding}px`;
       paddingVertical = `${verticalPadding}px`;
       break;
@@ -84,6 +89,7 @@ const createButtonContainerCSS = (
   }
 
   return `
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     ${radius};
@@ -99,10 +105,10 @@ const createButtonLabelCSS = (
   type: "primary" | "secondary" | "tertiary"
 ): string => {
   let color = `${COLORS.white}`;
-  let font = fonts.h3Medium;
+  let font = fonts.h3;
   switch (type) {
     case "primary":
-      color = `${COLORS.white}`;
+      color = `${COLORS.eerieBlack}`;
       break;
     case "secondary":
       color = `${COLORS.grey}`;
@@ -147,9 +153,9 @@ export type NavigationBarTheme = {
 const navigationBarThemes: { [key in NavigationBarType]: NavigationBarTheme } =
   {
     white: {
-      primaryBackgroundColor: COLORS.backgroundColor,
-      primaryForegroundColor: COLORS.darkBlue,
-      isLight: false,
+      primaryBackgroundColor: COLORS.eerieBlack,
+      primaryForegroundColor: COLORS.white,
+      isLight: true,
     },
     transparent: {
       primaryBackgroundColor: "transparent",
@@ -181,8 +187,8 @@ export const AppCSS = {
       secondary: createButtonLabelCSS("secondary"),
     },
     container: {
-      primary: createButtonContainerCSS(16, 32, "primary"),
-      secondary: createButtonContainerCSS(16, 32, "secondary"),
+      primary: createButtonContainerCSS(8, 16, "primary"),
+      secondary: createButtonContainerCSS(8, 16, "secondary"),
     },
   },
   navigationBar: {

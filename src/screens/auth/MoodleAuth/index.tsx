@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Image,
   StyleSheet,
@@ -7,65 +7,78 @@ import {
   TouchableNativeFeedback,
   View,
 } from "react-native";
+import ProjectScreenContainer from "../../../components/ProjectScreenContainer";
+import { useNavigation } from "@react-navigation/native";
+import { RootNavigationType } from "../../../router/types";
+import { AuthContext } from "../../../providers/AuthProvider/context";
 
 const MoodleAuth = () => {
+  const navigation = useNavigation<RootNavigationType<"MoodleAuth">>();
+
+  const { authenticateUser } = useContext(AuthContext);
+
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleUserChange = (newText) => {
+  const handleUserChange = (newText: string) => {
     setUser(newText);
   };
 
-  const handlePasswordChange = (newText) => {
+  const handlePasswordChange = (newText: string) => {
     setPassword(newText);
   };
 
-  const handleSubmit = () => {
-    // handle form submission with the text input value
-    console.log(user, " ", password);
+  const handleSubmit = async () => {
+    const loginObj = { email: user, password };
+    const result = await authenticateUser(loginObj, "emailAndPass");
+    if (!result) {
+      return;
+    }
+    navigation.navigate("Home");
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.backContainer}>
-        <View style={styles.back}></View>
-      </View>
-      <View style={styles.bluebox}>
-        <View style={styles.bluedark}>
-          <Text style={styles.title}>UNIVERSITATEA POLITEHNICA BUCUREȘTI</Text>
+    <ProjectScreenContainer rightButton={"close"}>
+      <View style={styles.container}>
+        <View style={styles.bluebox}>
+          <View style={styles.bluedark}>
+            <Text style={styles.title}>
+              UNIVERSITATEA POLITEHNICA BUCUREȘTI
+            </Text>
+          </View>
         </View>
-      </View>
-      <Text style={styles.logintext}>Log in to your account</Text>
-      <Image
-        source={require("../assets/UPB_C-1-e1605917237180-300x300.png")}
-        style={styles.logo}
-      ></Image>
-      <View style={styles.username}>
-        <Text style={styles.credentials}>Username or email</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={handleUserChange}
-          value={user}
-          placeholder="Username or email"
-        />
-      </View>
-      <View style={styles.username}>
-        <Text style={styles.credentials2}>Pasword</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={handlePasswordChange}
-          value={password}
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-      </View>
+        <Text style={styles.logintext}>Log in to your account</Text>
+        <Image
+          source={require("../../../../assets/UPB_C-1-e1605917237180-300x300.png")}
+          style={styles.logo}
+        ></Image>
+        <View style={styles.username}>
+          <Text style={styles.credentials}>Username or email</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={handleUserChange}
+            value={user}
+            placeholder="Username or email"
+          />
+        </View>
+        <View style={styles.username}>
+          <Text style={styles.credentials2}>Pasword</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={handlePasswordChange}
+            value={password}
+            placeholder="Password"
+            secureTextEntry={true}
+          />
+        </View>
 
-      <TouchableNativeFeedback style={styles.login} onPress={handleSubmit}>
-        <View style={styles.login}>
-          <Text style={styles.title}>Log in</Text>
-        </View>
-      </TouchableNativeFeedback>
-    </View>
+        <TouchableNativeFeedback style={styles.login} onPress={handleSubmit}>
+          <View style={styles.login}>
+            <Text style={styles.title}>Log in</Text>
+          </View>
+        </TouchableNativeFeedback>
+      </View>
+    </ProjectScreenContainer>
   );
 };
 

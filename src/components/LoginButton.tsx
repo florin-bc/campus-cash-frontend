@@ -6,9 +6,9 @@ import {
   TouchableNativeFeedback,
 } from "react-native";
 
-export default function LoginButton() {
+export default function LoginButton({ onPress }: { onPress: () => void }) {
   return (
-    <TouchableNativeFeedback>
+    <TouchableNativeFeedback onPress={onPress}>
       <View style={styles.box}>
         <Image
           source={require("../../assets/moodle-logo-short1.png")}

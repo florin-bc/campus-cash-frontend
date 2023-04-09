@@ -18,4 +18,5 @@ export interface NavigationHeaderProps {
   theme?: NavigationBarTheme;
   isTransparent?: boolean;
   titleIsItalic?: boolean;
+  profileSub?: string;
 }

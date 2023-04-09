@@ -18,6 +18,7 @@ interface NavigationBarTransparentProps {
   onRightTap?: () => void;
   screenType: ScreenContainerType;
   theme?: NavigationBarTheme;
+  profileSub?: string;
 }
 
 interface NavigationBarProps extends NavigationBarTransparentProps {
@@ -34,15 +35,17 @@ const NavigationSolidHeader = ({
   screenType,
   theme,
   isItalic,
+  profileSub,
 }: NavigationBarProps) => {
   return (
     <Components.NavigationHeaderContainer screenType={screenType} theme={theme}>
-      {leftButton ? (
+      {leftButton || profileSub ? (
         <Components.NavigationHeaderButtonContainer>
           <NavigationButton
             type={leftButton}
             onPress={onLeftTap}
             theme={theme}
+            profileSub={profileSub}
           />
         </Components.NavigationHeaderButtonContainer>
       ) : (
@@ -71,6 +74,7 @@ const NavigationTransparentHeader = ({
   onRightTap,
   screenType,
   theme,
+  profileSub,
 }: NavigationBarTransparentProps) => {
   return (
     <>
@@ -116,6 +120,7 @@ const NavigationHeader = ({
   theme,
   isTransparent,
   titleIsItalic,
+  profileSub,
 }: NavigationHeaderProps) => {
   const _screenType = screenType ? screenType : "fullScreen";
 
@@ -129,6 +134,7 @@ const NavigationHeader = ({
           onRightTap={onRightTap}
           screenType={_screenType}
           theme={theme}
+          profileSub={profileSub}
         />
       ) : (
         <NavigationSolidHeader
@@ -140,6 +146,7 @@ const NavigationHeader = ({
           screenType={_screenType}
           theme={theme}
           isItalic={titleIsItalic}
+          profileSub={profileSub}
         />
       )}
     </>
