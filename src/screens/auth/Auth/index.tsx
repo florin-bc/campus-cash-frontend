@@ -1,17 +1,11 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-} from "react-native";
-import Login from "../components/Login";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Login from "../../../../components/Login";
 
-export default function Auth() {
+const Auth = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/Screenshot_7.png")}
+        source={require("../../../../assets/Screenshot_7.png")}
         style={styles.logo}
       ></Image>
       <Text style={styles.motto}>We make it easy for you:{`\)`}</Text>
@@ -21,7 +15,9 @@ export default function Auth() {
       </Text>
     </View>
   );
-}
+};
+
+export default Auth;
 
 const styles = StyleSheet.create({
   container: {

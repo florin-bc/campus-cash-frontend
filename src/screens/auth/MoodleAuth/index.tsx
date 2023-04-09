@@ -1,16 +1,14 @@
+import { useState } from "react";
 import {
+  Image,
   StyleSheet,
   Text,
-  View,
-  Image,
   TextInput,
   TouchableNativeFeedback,
+  View,
 } from "react-native";
-import Back from "../assets/humble.svg";
-import Svg from "react-native-svg";
-import { useState } from "react";
 
-export default function Auth2() {
+const MoodleAuth = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
@@ -69,7 +67,9 @@ export default function Auth2() {
       </TouchableNativeFeedback>
     </View>
   );
-}
+};
+
+export default MoodleAuth;
 
 const styles = StyleSheet.create({
   container: {
