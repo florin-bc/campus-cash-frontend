@@ -12,6 +12,9 @@ import {
 import MoodleAuth from "../screens/auth/MoodleAuth";
 import Home from "../screens/Home/indes";
 import Loans from "../screens/Loans";
+import Payments from "../screens/Payments/Payments";
+import Restanta from "../screens/Payments/Restanta/Restanta";
+import Loan from "../screens/Payments/Loan/Loan";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,13 +23,16 @@ const RootNavigator = () => {
   return (
     <NavigationContainer ref={navigationRef} theme={navigationDefaultTheme}>
       <Stack.Navigator
-        initialRouteName={"Loans"}
+        initialRouteName={"Auth"}
         //@ts-ignore
       >
         <Stack.Group screenOptions={pushAnimationsAndEnableGesture}>
           <Stack.Screen name={"Auth"} component={Auth} />
           <Stack.Screen name={"Home"} component={Home} />
           <Stack.Screen name={"Loans"} component={Loans} />
+          <Stack.Screen name={"Payments"} component={Payments} />
+          <Stack.Screen name={"Restanta"} component={Restanta} />
+          <Stack.Screen name={"Loan"} component={Loan} />
         </Stack.Group>
         <Stack.Group screenOptions={modalScreenOptions}>
           <Stack.Screen name={"MoodleAuth"} component={MoodleAuth} />

@@ -7,6 +7,9 @@ export type RootStackRouteParams = {
   Home: undefined;
   Profile: undefined;
   Loans: undefined;
+  Payments: undefined;
+  Restanta: undefined;
+  Loan: undefined;
 };
 
 export type RootNavigationType<T extends keyof RootStackRouteParams> =

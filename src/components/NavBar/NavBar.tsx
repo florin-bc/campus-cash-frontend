@@ -2,17 +2,26 @@ import { StyleSheet, View, Text } from "react-native";
 import Home from "../../../assets/icons/home.svg";
 import Money from "../../../assets/icons/money.svg";
 import Loan from "../../../assets/icons/loan.svg";
+import { useNavigation } from "@react-navigation/native";
+import { RootNavigationType } from "../../router/types";
 
-export default function NavBar() {
-    const navigateHome = () => { console.log("navigateHome") }
-    const navigatePayments = () => { console.log("navigatePayments") }
-    const navigateLoans = () => { console.log("navigateLoans") }
+export default function NavBar({ context }: any) {
+  const navigation = useNavigation<RootNavigationType<typeof context>>();
+  const navigateHome = () => {
+    navigation?.push("Home");
+  };
+  const navigatePayments = () => {
+    navigation?.push("Payments");
+  };
+  const navigateLoans = () => {
+    navigation?.push("Loans");
+  };
 
   return (
     <View style={styles.container}>
-      <Home onPress={navigateHome}/>
-      <Money onPress={navigatePayments}/>
-      <Loan onPress={navigateLoans}/>
+      <Home onPress={navigateHome} />
+      <Money onPress={navigatePayments} />
+      <Loan onPress={navigateLoans} />
     </View>
   );
 }

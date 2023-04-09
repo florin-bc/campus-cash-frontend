@@ -40,13 +40,13 @@ export const fetchMyTransactions = async (myId: number) => {
 };
 
 export const fetchMyLoans = async (myId: number) => {
+  console.log("fetchMyLoans", myId);
   try {
-    const result = await fetch(`${BACKEND_URL}/loan/mine`, {
-      method: "POST",
+    const result = await fetch(`${BACKEND_URL}/loan/mine/${myId}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ myId }),
     });
     const resultJSON = await result.json();
     if (!resultJSON?.length || resultJSON?.length === 0) {
@@ -77,6 +77,7 @@ export const fetchAllLoans = async () => {
 };
 
 export const _answerLoan = async (loanId: number, myId: number) => {
+  console.log("_answerLoan", loanId, myId);
   try {
     const result = await fetch(`${BACKEND_URL}/loan/answer/${loanId}`, {
       method: "POST",
@@ -92,6 +93,7 @@ export const _answerLoan = async (loanId: number, myId: number) => {
 };
 
 export const _returnLoan = async (loanId: number) => {
+  console.log("_returnLoan", loanId);
   try {
     const result = await fetch(`${BACKEND_URL}/loan/return/${loanId}`, {
       method: "POST",

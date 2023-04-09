@@ -10,8 +10,8 @@ export interface InfoContextType {
   setAllLoans: React.Dispatch<React.SetStateAction<any[] | undefined>>;
   getMyLoans: () => Promise<void>;
   getAllLoans: () => Promise<void>;
-  answerLoan: () => Promise<void>;
-  returnLoan: () => Promise<void>;
+  answerLoan: (loanId: number) => Promise<void>;
+  returnLoan: (loanId: number) => Promise<void>;
 }
 
 export const InfoContext = React.createContext<InfoContextType>({

@@ -17,18 +17,17 @@ export const fetchLoginUser = async (value: any): Promise<any> => {
   }
 };
 
-// export const fetchUser = async (jwt: string) => {
-//   try {
-//     const result = await fetch(`${BACKEND}/user/profile`, {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `JWT ${jwt}`,
-//       },
-//     });
-//     const resultJSON = await result.json();
-//     return resultJSON;
-//   } catch (err) {
-//     console.log("[API]", "fetchUser error:", err);
-//   }
-// };
+export const fetchUserById = async (id: number): Promise<any> => {
+  try {
+    const result = await fetch(`${BACKEND_URL}/user/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const resultJSON = await result.json();
+    return resultJSON;
+  } catch (err) {
+    console.log("[API]", "fetchLoginUser error:", err);
+  }
+};

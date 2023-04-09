@@ -9,6 +9,7 @@ import { InfoContext } from "../../providers/InfoProvider/context";
 import IconUniPayment from "../../../assets/icons/icon-uni-payment.svg";
 import IconHomePayment from "../../../assets/icons/icon-home-payment.svg";
 import IconRestantaPayment from "../../../assets/icons/icon-restanta-payment.svg";
+import NavBar from "../../components/NavBar/NavBar";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -29,6 +30,7 @@ const Home = () => {
 
   return (
     <ProjectScreenContainer profileSub={profileSub} rightButton={"settings"}>
+      <NavBar context={"Home"} />
       <Components.HeaderTitle>
         Welcome, {user?.firstName}:)
       </Components.HeaderTitle>

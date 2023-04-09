@@ -55,7 +55,7 @@ export const CardComponents = {
       align-items: center;
     `,
 
-    NameLettersWrapper: styled.View`
+    NameLettersWrapper: styled.TouchableOpacity`
       height: 45px;
       width: 45px;
       align-items: center;

@@ -8,29 +8,28 @@ import {
   _returnLoan,
 } from "../../api/info";
 import { AuthContext } from "../AuthProvider/context";
+import { fetchUserById } from "../../api/auth";
 
 const InfoProvider = ({ children }: { children: React.ReactNode }) => {
   const [transactions, setTransactions] = useState<any[]>();
   const [myLoans, setMyLoans] = useState<any[]>();
   const [allLoans, setAllLoans] = useState<any[]>();
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   const getMyTransactions = async () => {
     const result = await fetchMyTransactions(user?.id);
     setTransactions(transactions);
-    console.log("getMyTransactions", result);
   };
 
   const getMyLoans = async () => {
     const result = await fetchMyLoans(user?.id);
-    setMyLoans(result);
     console.log("getMyLoans", result);
+    setMyLoans(result);
   };
 
   const getAllLoans = async () => {
     const result = await fetchAllLoans();
     setAllLoans(result);
-    console.log("getAllLoans", result);
   };
 
   const answerLoan = async (loanId: number) => {
@@ -38,6 +37,8 @@ const InfoProvider = ({ children }: { children: React.ReactNode }) => {
     await getMyTransactions();
     await getMyLoans();
     await getAllLoans();
+    const newUser = await fetchUserById(user?.id);
+    setUser(newUser);
   };
 
   const returnLoan = async (loanId: number) => {
@@ -45,6 +46,8 @@ const InfoProvider = ({ children }: { children: React.ReactNode }) => {
     await getMyTransactions();
     await getMyLoans();
     await getAllLoans();
+    const newUser = await fetchUserById(user?.id);
+    setUser(newUser);
   };
 
   const value = useMemo(
