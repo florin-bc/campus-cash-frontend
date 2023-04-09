@@ -8,6 +8,7 @@ import {
   navigationDefaultTheme,
   pushAnimationsAndEnableGesture,
 } from "./navigationOptions";
+import Loan from "../../src/screens/Payments/Loan/Loan"
 
 const Stack = createNativeStackNavigator();
 
@@ -16,11 +17,11 @@ const RootNavigator = () => {
   return (
     <NavigationContainer ref={navigationRef} theme={navigationDefaultTheme}>
       <Stack.Navigator
-        initialRouteName={"Auth"}
+        initialRouteName={"Loan"}
         //@ts-ignore
         screenOptions={pushAnimationsAndEnableGesture}
       >
-        <Stack.Screen name={"Auth"} component={Auth} />
+        <Stack.Screen name={"Loan"} component={Loan} />
       </Stack.Navigator>
     </NavigationContainer>
   );

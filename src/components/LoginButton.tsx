@@ -6,12 +6,12 @@ import {
   TouchableNativeFeedback,
 } from "react-native";
 
-export default function Login() {
+export default function LoginButton() {
   return (
     <TouchableNativeFeedback>
       <View style={styles.box}>
         <Image
-          source={require("../assets/moodle-logo-short1.png")}
+          source={require("../../assets/moodle-logo-short1.png")}
           style={styles.moodle}
         ></Image>
         <Text style={styles.authbutton}>Log in with Moodle</Text>

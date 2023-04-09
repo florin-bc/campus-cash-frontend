@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import Login from "../../../../components/Login";
+import LoginButton from "../../../components/LoginButton";
 
 const Auth = () => {
   return (
@@ -9,7 +9,7 @@ const Auth = () => {
         style={styles.logo}
       ></Image>
       <Text style={styles.motto}>We make it easy for you:{`\)`}</Text>
-      <Login></Login>
+      <LoginButton />
       <Text style={styles.terms} onPress={() => console.log("pressed")}>
         Terms and conditions
       </Text>
