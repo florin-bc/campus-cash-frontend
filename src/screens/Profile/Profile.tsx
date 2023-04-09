@@ -1,5 +1,6 @@
 import ProfileCircle from "../../components/ProfileCircle";
 import { StyleSheet, TextInput, Text, View, ScrollView } from "react-native";
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function Profile({ name, firstname, rating}) {
   firstname = "Rodrigo";
@@ -60,6 +61,7 @@ export default function Profile({ name, firstname, rating}) {
           <TextInput style={styles.id} editable={false} value={`Camera: ${data.room}`}></TextInput>
         </View>: null}
       </ScrollView>
+      <NavBar />
     </View>
   );
 }

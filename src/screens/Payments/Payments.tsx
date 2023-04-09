@@ -2,6 +2,7 @@ import { StyleSheet, View, Text,TouchableOpacity } from "react-native";
 import House from "../../../assets/icons/house.svg";
 import University from "../../../assets/icons/university.svg";
 import Cash from "../../../assets/icons/cashr.svg";
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function Payments() {
   const handleDorm = () => {
@@ -38,6 +39,7 @@ export default function Payments() {
           <Text style={styles.option}>Plata materie (facult.)</Text>
         </TouchableOpacity>
       </View>
+      <NavBar />
     </View>
   );
 }

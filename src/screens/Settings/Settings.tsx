@@ -2,12 +2,12 @@ import {
   StyleSheet,
   View,
   Text,
-  TouchableNativeFeedback,
   TouchableOpacity,
 } from "react-native";
 import Person from "../../../assets/icons/icon_person.svg";
 import World from "../../../assets/icons/world.svg";
 import Document from "../../../assets/icons/document.svg";
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function Settings() {
   const handleAccount = () => {
@@ -43,6 +43,7 @@ export default function Settings() {
           <Text style={styles.option2}>Închide contul</Text>
         </TouchableOpacity>
       </View>
+      <NavBar />
     </View>
   );
 }
