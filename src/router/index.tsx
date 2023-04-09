@@ -3,7 +3,7 @@ import {
   NavigationContainer,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Profile from "../screens/Profile/Profile";
+import Settings from "../screens/Settings/Settings";
 import {
   navigationDefaultTheme,
   pushAnimationsAndEnableGesture,
@@ -16,11 +16,11 @@ const RootNavigator = () => {
   return (
     <NavigationContainer ref={navigationRef} theme={navigationDefaultTheme}>
       <Stack.Navigator
-        initialRouteName={"Profile"}
+        initialRouteName={"Settings"}
         //@ts-ignore
         screenOptions={pushAnimationsAndEnableGesture}
       >
-        <Stack.Screen name={"Profile"} component={Profile} />
+        <Stack.Screen name={"Settings"} component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   );
