@@ -1,17 +1,22 @@
-import { StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function Profile({nume, prenume}) {
-    nume = "Rusu";
-    prenume = "Andrei";
-    const handleProfile = () => {
-        console.log("Profile")
-    }
-  return <TouchableOpacity style={styles.circle} onPress={handleProfile}>
-    <Text style={styles.init}>{prenume[0]}{nume[0]}</Text>
-  </TouchableOpacity>;
+export default function Profile({ nume, prenume }: any) {
+  nume = "Rusu";
+  prenume = "Andrei";
+  const handleProfile = () => {
+    console.log("Profile");
+  };
+  return (
+    <TouchableOpacity style={styles.circle} onPress={handleProfile}>
+      <Text style={styles.init}>
+        {prenume[0]}
+        {nume[0]}
+      </Text>
+    </TouchableOpacity>
+  );
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   circle: {
     display: "flex",
     justifyContent: "center",
@@ -24,5 +29,5 @@ styles = StyleSheet.create({
   init: {
     fontSize: 24,
     color: "#242423",
-  }
+  },
 });

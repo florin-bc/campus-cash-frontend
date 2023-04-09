@@ -1,4 +1,4 @@
-import ProfileCircle from "../components/ProfileCircle";
+import ProfileCircle from "../../components/ProfileCircle";
 import { StyleSheet, View } from "react-native";
 
 export default function Profile() {
@@ -27,5 +27,5 @@ const styles = StyleSheet.create({
     width: 24,
     backgroundColor: "#FFFFFF",
     borderRadius: 12,
-  }
+  },
 });
