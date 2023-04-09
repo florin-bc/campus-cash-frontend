@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function Profile({ nume, prenume }: any) {
-  nume = "Rusu";
-  prenume = "Andrei";
+  nume = "Musu";
+  prenume = "Rndrei";
   const handleProfile = () => {
     console.log("Profile");
   };
